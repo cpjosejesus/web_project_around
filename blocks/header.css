@@ -1,0 +1,14 @@
+.header {
+  padding: 45px 199px 40px;
+  margin: 0 auto;
+  max-width: 882px;
+}
+
+.header__logo {
+  width: 173px;
+}
+
+.header__separator {
+  border-bottom: 1px solid #545454;
+  margin-top: 41px;
+}
