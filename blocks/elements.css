@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   column-gap: 18px;
   row-gap: 20px;
+  justify-content: center;
 }
 
 .element {
@@ -39,8 +40,10 @@
   font-style: normal;
   font-weight: 900;
   margin: 0;
-  white-space: nowrap;
   width: 238px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .element__button_like {
