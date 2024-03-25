@@ -65,7 +65,7 @@
   font-size: 14px;
 }
 
-.popup__button_save {
+.popup__button-save {
   background-color: black;
   width: 358px;
   height: 50.15px;
@@ -77,11 +77,11 @@
   margin-top: 14px;
 }
 
-.popup__button_save:hover {
+.popup__button-save:hover {
   opacity: 0.8;
 }
 
-.popup__button_close {
+.popup__button-close {
   background: url(../images/close.svg) no-repeat center;
   width: 26px;
   height: 26px;
@@ -92,7 +92,7 @@
   cursor: pointer;
 }
 
-.popup__button_close:hover {
+.popup__button-close:hover {
   opacity: 0.6;
 }
 
@@ -111,10 +111,10 @@
     width: 238px;
   }
 
-  .popup__button_save {
+  .popup__button-save {
     width: 238px;
   }
-  .popup__button_close {
+  .popup__button-close {
     top: -50px;
     right: 0px;
   }
