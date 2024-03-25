@@ -77,6 +77,10 @@
   margin-top: 14px;
 }
 
+.popup__button_save:hover {
+  opacity: 0.8;
+}
+
 .popup__button_close {
   background: url(../images/close.svg) no-repeat center;
   width: 26px;
@@ -85,4 +89,9 @@
   border: none;
   top: -39px;
   right: -39px;
+  cursor: pointer;
+}
+
+.popup__button_close:hover {
+  opacity: 0.6;
 }
