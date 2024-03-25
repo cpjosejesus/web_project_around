@@ -35,11 +35,17 @@
 .profile__name {
   margin: 0;
   font-family: "Inter Black";
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__type {
   margin: 0;
   font-family: "Inter";
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__button-edit {
