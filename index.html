@@ -29,7 +29,7 @@
               <p class="profile__type">Explorador</p>
             </div>
 
-            <button class="profile__button"></button>
+            <button class="profile__button_edit"></button>
           </div>
           <button type="button" class="profile__button_add"></button>
         </section>
@@ -116,6 +116,37 @@
       <footer class="footer">
         <p class="footer__text">&copy; 2024. Jose Jesus CP</p>
       </footer>
+
+      <div class="popup">
+        <div class="popup__overlay"></div>
+
+        <div class="popup__container">
+          <button type="button" class="popup__button_close"></button>
+          <form class="popup__form">
+            <h2 class="popup__heading">Editar perfil</h2>
+
+            <fieldset class="popup__field">
+              <input
+                type="text"
+                class="popup__item popup__item_name"
+                id="name"
+                placeholder="Nombre"
+                required
+              />
+              <input
+                type="text"
+                class="popup__item popup__item_type"
+                id="type"
+                placeholder="Acerca de mi"
+                required
+              />
+              <button type="submit" class="popup__button_save">Guardar</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </div>
+
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
