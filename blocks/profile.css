@@ -77,6 +77,15 @@
   opacity: 0.6;
 }
 
+@media screen and (max-width: 880px) {
+  .profile__name {
+    max-width: 250px;
+  }
+  .profile__type {
+    max-width: 250px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .profile {
     padding: 2.2em 0 3.1em;
