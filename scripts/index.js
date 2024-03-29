@@ -8,6 +8,8 @@ const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__item_name");
 const inputType = document.querySelector(".popup__item_type");
 
+const elements = document.querySelector(".elements");
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -35,11 +37,36 @@ const initialCards = [
   },
 ];
 
-function togglePopup(popup) {
+const togglePopup = (popup) => {
   inputName.value = profileName.innerHTML;
   inputType.value = profileType.innerHTML;
   popup.classList.toggle("popup__opened");
-}
+};
+
+const toggleLike = (btn) => {
+  btn.classList.toggle("element__button-like_black");
+};
+
+const createCard = (name, link) => {
+  const cardTemplate = document.querySelector("#card-template").content;
+  const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
+  cardElement.querySelector(".element__title").textContent = name;
+  cardElement.querySelector(".element__image").src = link;
+
+  // handle buttons events
+  const likeBtn = cardElement.querySelector(".element__button-like");
+  likeBtn.addEventListener("click", () => toggleLike(likeBtn));
+
+  const deleteBtn = cardElement.querySelector(".element__button-delete");
+  deleteBtn.addEventListener("click", () => cardElement.remove());
+
+  return cardElement;
+};
+
+initialCards.forEach((item) => {
+  const newElement = createCard(item.name, item.link);
+  elements.append(newElement);
+});
 
 buttonEdit.addEventListener("click", function () {
   togglePopup(popupProfile);

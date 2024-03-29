@@ -58,6 +58,14 @@
   opacity: 0.5;
 }
 
+.element__button-like_black {
+  background: url(../images/like-black.svg) no-repeat center;
+  width: 21px;
+  height: 19px;
+  border: none;
+  cursor: pointer;
+}
+
 .element__button-delete {
   width: 18px;
   height: 19.3px;
