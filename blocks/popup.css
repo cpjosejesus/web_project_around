@@ -96,6 +96,22 @@
   opacity: 0.6;
 }
 
+.popup__container_img {
+  position: absolute;
+  top: 130px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.popup__title-img {
+  font-size: 12px;
+}
+
 @media screen and (max-width: 880px) {
   .popup__form {
     width: 282px;

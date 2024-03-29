@@ -16,6 +16,9 @@ const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__item_name");
 const inputType = document.querySelector(".popup__item_type");
 
+const popupImg = document.querySelector(".popup_img");
+const buttonCloseImg = document.querySelector(".popup__button-close_img");
+
 const elements = document.querySelector(".elements");
 
 const initialCards = [
@@ -68,6 +71,14 @@ const createCard = (name, link) => {
   const deleteBtn = cardElement.querySelector(".element__button-delete");
   deleteBtn.addEventListener("click", () => cardElement.remove());
 
+  // Image card pop up handles
+  const imgElement = cardElement.querySelector(".element__image");
+  imgElement.addEventListener("click", () => {
+    popupImg.classList.toggle("popup__opened");
+    popupImg.querySelector("img").src = link;
+    popupImg.querySelector(".popup__title-img").textContent = name;
+  });
+
   return cardElement;
 };
 
@@ -110,4 +121,6 @@ popupFormCard.addEventListener("submit", (event) => {
   togglePopup(popupAddImage);
 });
 
-// Image card pop up handles
+buttonCloseImg.addEventListener("click", () => {
+  togglePopup(popupImg);
+});
