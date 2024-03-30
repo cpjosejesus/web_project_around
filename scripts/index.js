@@ -63,6 +63,7 @@ const createCard = (name, link) => {
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
   cardElement.querySelector(".element__title").textContent = name;
   cardElement.querySelector(".element__image").src = link;
+  cardElement.querySelector(".element__image").alt = "Paisaje de " + name;
 
   // handle buttons events
   const likeBtn = cardElement.querySelector(".element__button-like");
@@ -76,6 +77,7 @@ const createCard = (name, link) => {
   imgElement.addEventListener("click", () => {
     popupImg.classList.toggle("popup__opened");
     popupImg.querySelector("img").src = link;
+    popupImg.querySelector("img").alt = "Paisaje de " + name;
     popupImg.querySelector(".popup__title-img").textContent = name;
   });
 
