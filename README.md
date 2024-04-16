@@ -28,5 +28,3 @@ Este repositorio contiene el código fuente para el sitio web de Around USA, el 
 
 ### Github page
 - Accede a la pagina con el siguiente link [https://cpjosejesus.github.io/web_project_around/](https://cpjosejesus.github.io/web_project_around/)
-
-

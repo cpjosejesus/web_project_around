@@ -45,7 +45,7 @@
         <div class="popup__overlay"></div>
         <div class="popup__container">
           <button type="button" class="popup__button-close"></button>
-          <form class="popup__form">
+          <form class="popup__form" name="edit" novalidate>
             <h2 class="popup__heading">Editar perfil</h2>
 
             <fieldset class="popup__field">
@@ -55,15 +55,29 @@
                 id="name"
                 placeholder="Nombre"
                 required
+                minlength="2"
+                maxlength="40"
               />
+              <span class="name-error popup__error"></span>
+
               <input
                 type="text"
                 class="popup__item popup__item_type"
                 id="type"
                 placeholder="Acerca de mi"
                 required
+                minlength="2"
+                maxlength="200"
               />
-              <button type="submit" class="popup__button-save">Guardar</button>
+              <span class="type-error popup__error"></span>
+
+              <button
+                disabled
+                type="submit"
+                class="popup__button popup__button-save"
+              >
+                Guardar
+              </button>
             </fieldset>
           </form>
         </div>
@@ -76,7 +90,7 @@
             type="button"
             class="popup__button-close popup__button-close_add"
           ></button>
-          <form class="popup__form popup__form_add">
+          <form class="popup__form popup__form_add" name="add" novalidate>
             <h2 class="popup__heading">Nuevo lugar</h2>
 
             <fieldset class="popup__field">
@@ -86,14 +100,20 @@
                 id="title"
                 placeholder="Titulo"
                 required
+                minlength="2"
+                maxlength="30"
               />
+              <span class="title-error popup__error"></span>
+
               <input
-                type="text"
+                type="url"
                 class="popup__item popup__item_url"
                 id="url"
                 placeholder="Enlace a la imagen"
                 required
               />
+              <span class="url-error popup__error"></span>
+
               <button type="submit" class="popup__button-save">Crear</button>
             </fieldset>
           </form>
@@ -124,6 +144,7 @@
       </template>
 
       <script src="./scripts/index.js"></script>
+      <script src="./scripts/validate.js"></script>
     </div>
   </body>
 </html>

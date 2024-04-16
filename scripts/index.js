@@ -21,6 +21,8 @@ const buttonCloseImg = document.querySelector(".popup__button-close_img");
 
 const elements = document.querySelector(".elements");
 
+const overlays = document.querySelectorAll(".popup__overlay");
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -125,4 +127,24 @@ popupFormCard.addEventListener("submit", (event) => {
 
 buttonCloseImg.addEventListener("click", () => {
   togglePopup(popupImg);
+});
+
+// close using escape key
+document.addEventListener("keydown", () => {
+  if (event.key === "Escape") {
+    const popups = document.querySelectorAll(".popup");
+    popups.forEach((popup) => {
+      if (popup.classList.contains("popup__opened")) {
+        togglePopup(popup);
+      }
+    });
+  }
+});
+
+// closing by clicking on overlay in the screen
+overlays.forEach((overlay) => {
+  overlay.addEventListener("click", (event) => {
+    const popup = overlay.closest(".popup");
+    togglePopup(popup);
+  });
 });
