@@ -92,15 +92,6 @@ function enableValidation({
   });
 }
 
-// const config = {
-//   formSelector: ".popup__form",
-//   inputSelector: ".popup__input",
-//   submitButtonSelector: ".popup__button",
-//   inactiveButtonClass: "popup__button_disabled",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: "popup__error_visible",
-// };
-
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__item",
@@ -109,12 +100,3 @@ enableValidation({
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 });
-
-// enableValidation({
-//   formSelector: ".popup__form",
-//   inputSelector: ".popup__item",
-//   submitButtonSelector: ".button_save",
-//   inactiveButtonClass: "button_save_disabled",
-//   inputErrorClass: "popup__item-invalid",
-//   errorClass: "popup__item-error_active",
-// });
