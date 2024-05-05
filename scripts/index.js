@@ -1,3 +1,7 @@
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+import { config, initialCards, popupImg } from "./utils.js";
+
 const buttonEdit = document.querySelector(".profile__button-edit");
 const buttonAdd = document.querySelector(".profile__button-add");
 
@@ -16,39 +20,11 @@ const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__item_name");
 const inputType = document.querySelector(".popup__item_type");
 
-const popupImg = document.querySelector(".popup_img");
 const buttonCloseImg = document.querySelector(".popup__button-close_img");
 
 const elements = document.querySelector(".elements");
 
 const overlays = document.querySelectorAll(".popup__overlay");
-
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
 
 const togglePopup = (popup) => {
   inputName.value = profileName.innerHTML;
@@ -56,39 +32,9 @@ const togglePopup = (popup) => {
   popup.classList.toggle("popup__opened");
 };
 
-const toggleLike = (btn) => {
-  btn.classList.toggle("element__button-like_black");
-};
-
-const createCard = (name, link) => {
-  const cardTemplate = document.querySelector("#card-template").content;
-  const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
-  cardElement.querySelector(".element__title").textContent = name;
-  cardElement.querySelector(".element__image").src = link;
-  cardElement.querySelector(".element__image").alt = "Paisaje de " + name;
-
-  // handle buttons events
-  const likeBtn = cardElement.querySelector(".element__button-like");
-  likeBtn.addEventListener("click", () => toggleLike(likeBtn));
-
-  const deleteBtn = cardElement.querySelector(".element__button-delete");
-  deleteBtn.addEventListener("click", () => cardElement.remove());
-
-  // Image card pop up handles
-  const imgElement = cardElement.querySelector(".element__image");
-  imgElement.addEventListener("click", () => {
-    popupImg.classList.toggle("popup__opened");
-    popupImg.querySelector("img").src = link;
-    popupImg.querySelector("img").alt = "Paisaje de " + name;
-    popupImg.querySelector(".popup__title-img").textContent = name;
-  });
-
-  return cardElement;
-};
-
 initialCards.forEach((item) => {
-  const newElement = createCard(item.name, item.link);
-  elements.append(newElement);
+  const newElement = new Card(item.name, item.link, "#card-template");
+  elements.append(newElement.createCard());
 });
 
 // profile edit handlers
@@ -119,8 +65,8 @@ buttonCloseAdd.addEventListener("click", () => {
 popupFormCard.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const newCard = createCard(inputTitle.value, inputURL.value);
-  elements.prepend(newCard);
+  const newCard = new Card(inputTitle.value, inputURL.value, "#card-template");
+  elements.prepend(newCard.createCard());
   popupFormCard.reset();
   togglePopup(popupAddImage);
 });
@@ -130,7 +76,7 @@ buttonCloseImg.addEventListener("click", () => {
 });
 
 // close using escape key
-document.addEventListener("keydown", () => {
+document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");
     popups.forEach((popup) => {
@@ -148,3 +94,11 @@ overlays.forEach((overlay) => {
     togglePopup(popup);
   });
 });
+
+// form validator
+Array.from(document.querySelectorAll(config.formSelector)).forEach(
+  (formElement) => {
+    const formValidator = new FormValidator(config, formElement);
+    formValidator.enableValidation();
+  }
+);
