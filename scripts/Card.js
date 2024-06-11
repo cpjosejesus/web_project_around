@@ -1,10 +1,11 @@
-import { toggleLike, popupImg } from "./utils.js";
+import { toggleLike } from "./utils.js";
 
 export default class Card {
-  constructor(name, link, elementSelector) {
+  constructor(name, link, elementSelector, { handleCardClick }) {
     this.name = name;
     this.link = link;
     this.elementSelector = elementSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getCardTemplate() {
@@ -20,21 +21,16 @@ export default class Card {
 
   _setButtonEvents() {
     const likeBtn = this._cardElement.querySelector(".element__button-like");
-    likeBtn.addEventListener("click", () => toggleLike(likeBtn));
-
     const deleteBtn = this._cardElement.querySelector(
       ".element__button-delete"
     );
+    const imgElement = this._cardElement.querySelector(".element__image");
+
+    likeBtn.addEventListener("click", () => toggleLike(likeBtn));
     deleteBtn.addEventListener("click", () => this._cardElement.remove());
 
     // Image card pop up handles
-    const imgElement = this._cardElement.querySelector(".element__image");
-    imgElement.addEventListener("click", () => {
-      popupImg.classList.toggle("popup__opened");
-      popupImg.querySelector("img").src = this.link;
-      popupImg.querySelector("img").alt = "Paisaje de " + this.name;
-      popupImg.querySelector(".popup__title-img").textContent = this.name;
-    });
+    imgElement.addEventListener("click", this._handleCardClick);
   }
 
   createCard() {
