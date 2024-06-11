@@ -28,14 +28,6 @@ const initialCards = [
 const buttonEdit = document.querySelector(".profile__button-edit");
 const buttonAdd = document.querySelector(".profile__button-add");
 
-const buttonClose = document.querySelector(".popup__button-close");
-
-const popupFormCard = document.querySelector(".popup__form_add");
-const popupAddImage = document.querySelector(".popup_add");
-const buttonCloseAdd = document.querySelector(".popup__button-close_add");
-const inputTitle = document.querySelector(".popup__item_title");
-const inputURL = document.querySelector(".popup__item_url");
-
 const profileName = document.querySelector(".profile__name");
 const profileType = document.querySelector(".profile__type");
 const inputName = document.querySelector(".popup__item_name");

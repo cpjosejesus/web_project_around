@@ -1,11 +1,11 @@
-import Card from "./Card.js";
-import PopupWithImage from "./PopupWithImage.js";
-import { PopupWithFrom } from "./PopupWithForm.js";
-import Section from "./Section.js";
-import UserInfo from "./UserInfo.js";
-import FormValidator from "./FormValidator.js";
+import Card from "./scripts/Card.js";
+import PopupWithImage from "./scripts/PopupWithImage.js";
+import { PopupWithFrom } from "./scripts/PopupWithForm.js";
+import Section from "./scripts/Section.js";
+import UserInfo from "./scripts/UserInfo.js";
+import FormValidator from "./scripts/FormValidator.js";
 
-import { config, popupImg } from "./utils.js";
+import { config } from "./scripts/utils.js";
 import {
   initialCards,
   popupImageSelector,
@@ -18,7 +18,9 @@ import {
   inputName,
   inputType,
   elements,
-} from "./constants.js";
+} from "./scripts/constants.js";
+
+import "./pages/index.css";
 
 const popupImage = new PopupWithImage(popupImageSelector);
 const popupProfile = new PopupWithFrom(popupProfileSelector, (inputValues) => {

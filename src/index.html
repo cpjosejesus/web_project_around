@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Project Around</title>
   </head>
   <body class="page">
     <div class="page">
       <header class="header">
         <img
-          src="./images/logo.svg"
+          src="<%= require('./images/logo.svg')%>"
           alt="Logo del site Around USA"
           class="header__logo"
         />
@@ -20,7 +19,7 @@
         <section class="profile">
           <div class="profile__content">
             <img
-              src="./images/profile.jpg"
+              src="<%= require('./images/profile.jpg')%>"
               alt="Profile Image"
               class="profile__image"
             />
@@ -146,9 +145,6 @@
           </div>
         </div>
       </template>
-
-      <script type="module" src="./scripts/index.js"></script>
-      <!-- <script src="./scripts/validate.js"></script> -->
     </div>
   </body>
 </html>
